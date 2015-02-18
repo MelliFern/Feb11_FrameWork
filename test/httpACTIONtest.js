@@ -18,8 +18,8 @@ describe('ACTION - POST Test1 ', function(){
 		.send({id:"student"})
 		.end(function(err,res){
 		expect(err).to.eql(null);
-		fs.exists('../files/file_student.json', function (exists){
-			expect(exists).to.be.true; 
+		fs.exists('./files/file_student.json', function (exists){
+			expect(exists).to.be.true; // jshint ignore:line
 		});
 		done();
 		});
@@ -35,7 +35,7 @@ describe('ACTION - POST Test2 ', function(){
 		.send({id:'student', name: 'Jane Doe'})
 		.end(function(err,res){
 		expect(err).to.eql(null);
-		fs.readFile('../files/file_student.json','utf8', function(err,data){
+		fs.readFile('./files/file_student.json','utf8', function(err,data){
 			if (err) throw "GET - error   -> "+ err; 
 			else {
 				//createResponse(res,200,'\n GET json data to file\n');
@@ -56,7 +56,7 @@ describe('ACTION - PUT Test ', function(){
 		.send({id:"student", fname:"Jane", lname:"Doe"})
 		.end(function(err,res){
 		expect(err).to.eql(null);
-		fs.readFile('../files/file_student.json','utf8', function(err,data){
+		fs.readFile('./files/file_student.json','utf8', function(err,data){
 			if (err) throw "GET - error   -> "+ err; 
 			else {
 				//createResponse(res,200,'\n GET json data to file\n');
@@ -95,8 +95,8 @@ describe('ACTION - DEL Test ', function(){
 		.send({id:"student"})		
 		.end(function(err,res){
 		expect(err).to.eql(null);				
-		fs.exists('../files/file_student.json', function (exists){
-			expect(exists).to.be.false; 
+		fs.exists('./files/file_student.json', function (exists){
+			expect(exists).to.be.false; // jshint ignore:line
 		});
 		done();
 		});
